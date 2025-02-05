@@ -60,10 +60,10 @@ class Vue_Entreprise_Formulaire extends Vue_Composant
 
         $str .=  "
 <table style='display: inline-block'> 
-    <form>
+    <form action='index.php'>
         
         <input type='hidden' name='case' value='Gerer_entreprisesPartenaires'>
-        
+        ".genereChampHiddenCSRF()."
         <input type='hidden' name='idEntreprise' value='$this->idEntreprise'>
         <tr>
             <td>

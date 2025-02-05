@@ -32,9 +32,10 @@ private string $categorieUtilisateur="";
 
         $str .= "
 <table style='display: inline-block'> 
-    <form method='get'>
+    <form action='index.php' method='get'>
         
         <input type='hidden' name='case' value='Gerer_utilisateur'>
+        ".genereChampHiddenCSRF()."
         
         <input type='hidden' name='idUtilisateur' value='$this->idUtilisateur'>
         <tr>

@@ -21,9 +21,10 @@ class Vue_Utilisateur_Liste extends Vue_Composant
     <table style="    display: inline-block;">
          <tr>
             <td colspan="6" style="text-align: center">
-                <form style=\'display: contents\'>
+                <form action="index.php" style=\'display: contents\'>
                  
                     <input type="hidden" name="case" value="Gerer_utilisateur">
+                  '.genereChampHiddenCSRF().'
                     <input type="hidden" value="" name="action">
  
                         <button type=\'submit\' 
@@ -60,10 +61,10 @@ class Vue_Utilisateur_Liste extends Vue_Composant
 
 
                 $str .=  "
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                 
                         <input type='hidden' name='case' value='Gerer_utilisateur'>
-                        
+                        ".genereChampHiddenCSRF()."
                         <input type='hidden' value='$iemeUtilisateur[idUtilisateur]' name='idUtilisateur'>
                         <button type='submit' 
                             onmouseover=\"this.style.background='#FFFF99';this.style.color='#FF0000';\"
@@ -79,10 +80,10 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                     case 0:
                         $str .=  "
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='Gerer_utilisateur'>
-                    
+                    ".genereChampHiddenCSRF()."
                         <input type='hidden' value='$iemeUtilisateur[idUtilisateur]' name='idUtilisateur'>
                         <button type='submit' 
                                 onmouseover=\"this.style.background='#FFFF99';this.style.color='#FF0000';\"
@@ -99,8 +100,9 @@ class Vue_Utilisateur_Liste extends Vue_Composant
                     case 1:
                         $str .=  "
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                         <input type='hidden' name='case' value='Gerer_utilisateur'>    
+                        ".genereChampHiddenCSRF()."
                         <input type='hidden' value='$iemeUtilisateur[idUtilisateur]' name='idUtilisateur'>
                         <button type='submit' 
                             onmouseover=\"this.style.background='#FFFF99';this.style.color='#FF0000';\"

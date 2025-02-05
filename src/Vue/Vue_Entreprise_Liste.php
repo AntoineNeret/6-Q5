@@ -22,10 +22,10 @@ class Vue_Entreprise_Liste  extends Vue_Composant
     <table style="    display: inline-block;">
          <tr>
             <td colspan="5" style="text-align: center">
-                <form style=\'display: contents\'>
+                <form action='index.php' style=\'display: contents\'>
                      
                     <input type="hidden" name="case" value="Gerer_entreprisesPartenaires">
- 
+ ".genereChampHiddenCSRF()."
                         <button type="submit" 
                                 onmouseover="this.style.background=\'#FFFF99\';this.style.color=\'#FF0000\';"
                                 onmouseout="this.style.background=\';this.style.color=\';" 
@@ -58,9 +58,10 @@ class Vue_Entreprise_Liste  extends Vue_Composant
 
                 $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                         <input type='hidden' name='case' value='Gerer_entreprisesPartenaires'>
+                          ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$iemeEntreprise[idEntreprise]' name='idEntreprise'>
                             
                             <button type='submit' 
@@ -77,10 +78,10 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                     case 0:
                         $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                         <input type='hidden' name='case' value='Gerer_entreprisesPartenaires'>
-                            <input type='hidden' value='$iemeEntreprise[idEntreprise]' name='idEntreprise'>
+                         ".genereChampHiddenCSRF()."   <input type='hidden' value='$iemeEntreprise[idEntreprise]' name='idEntreprise'>
                             
                             <button type='submit' 
                                     onmouseover=\"this.style.background= '#FFFF99';this.style.color= '#FF0000';\"
@@ -97,10 +98,10 @@ class Vue_Entreprise_Liste  extends Vue_Composant
                     case 1:
                         $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                             <input type='hidden' name='case' value='Gerer_entreprisesPartenaires'>
-                            
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$iemeEntreprise[idEntreprise]' name='idEntreprise'>
                             <button type='submit' 
                                     onmouseover=\"this.style.background ='#FFFF99';this.style.color= '#FF0000';\"

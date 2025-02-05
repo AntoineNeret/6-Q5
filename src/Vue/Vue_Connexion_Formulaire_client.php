@@ -37,7 +37,7 @@ class Vue_Connexion_Formulaire_client extends Vue_Composant
         $str .=  "
 
 </form>
-<form>
+<form action='index.php'>
 
 <h1>Mot de passe perdu ?</h1>
 

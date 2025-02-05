@@ -19,10 +19,10 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
     <table style='display: inline-block'>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='Gerer_Entreprise'>
-                    
+                   ".genereChampHiddenCSRF()." 
                     <button type='submit' name='action' value='infoEntreprise'>
                         Les informations de l&apos;entreprise
                     </button>
@@ -32,10 +32,10 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
         </tr>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='Gerer_Entreprise'>
-                         
+                      ".genereChampHiddenCSRF()."   
                 
                     <button type='submit' name='action' value='salariesHabitites'>
                         Personnes habilitées
@@ -46,10 +46,10 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
         </tr>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='Gerer_monCompte'>
-                    
+                    ".genereChampHiddenCSRF()."
                     <button type='submit' name='action' value='ChangerMDPEntreprise'>
                         Changer mot de passe
                     </button>
@@ -59,10 +59,10 @@ class Vue_Entreprise_Gerer_Compte  extends Vue_Composant
         </tr>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='Gerer_monCompte'>    
-                    
+                    ".genereChampHiddenCSRF()."
                     <button type='submit' name='action' value='deconnexionEntreprise'>
                         Se déconnecter
                     </button>

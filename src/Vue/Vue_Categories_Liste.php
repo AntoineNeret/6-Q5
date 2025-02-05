@@ -20,11 +20,11 @@ class Vue_Categories_Liste extends Vue_Composant
                 <ul id='menu-closed'>
                 ";
         if ($this->utilisateur) {
-            $str .= "<form style='display: contents'> 
+            $str .= "<form action='index.php' style='display: contents'> 
             
                 <li>
                     <input type='hidden' name='case' value='Gerer_catalogue'>
-                    
+                    ".genereChampHiddenCSRF()."
                     <button type='submit' name='action' value='AjouterCategorie'>+</button> </li>
                 </form>";
         }
@@ -35,9 +35,10 @@ class Vue_Categories_Liste extends Vue_Composant
             if ($iemeCategorie["desactiverCategorie"] == 0) {
                 $str .= "
                    <li>
-                        <form style='display: contents'> 
+                        <form action='index.php' style='display: contents'> 
                             
                             <input type='hidden' name='case' value='Gerer_catalogue'>
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' name='idCategorie' value='$iemeCategorie[idCategorie]'>
                             <button type='submit' value='boutonCategorie' name='action'>
                                 $iemeCategorie[libelle]
@@ -49,10 +50,11 @@ class Vue_Categories_Liste extends Vue_Composant
             $i++;
         }
         $str .= "
-                <form style='display: contents'> 
+                <form action='index.php' style='display: contents'> 
                     
                     <li><input type='text' name='recherche' placeholder='Rechercher'> </li>
                         <input type='hidden' name='case' value='Gerer_catalogue'>
+                        ".genereChampHiddenCSRF()."
                     <li>
                                 <button type='submit' value='okRechercher' name='action'>OK</button>
                      </li>

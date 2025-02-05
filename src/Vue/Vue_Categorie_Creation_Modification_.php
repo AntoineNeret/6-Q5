@@ -26,10 +26,11 @@ private string $description="";
 
         $str .=  "
 <table style='display: inline-block'> 
-    <form>
+    <form action='index.php'>
         
         <input type='hidden' name='idCategorie' value='$this->idCategorie'>
         <input type='hidden' name='case' value='Gerer_catalogue'>
+        ".genereChampHiddenCSRF()."
         <tr>
             <td>
                 <label>ID Catégorie : </label>

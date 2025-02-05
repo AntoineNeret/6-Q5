@@ -56,9 +56,10 @@ class Vue_Commande_Liste extends Vue_Composant
                         <td >" . number_format($item["prixTotalTTC"], 2) . " €</td>
                         <td >$item[libEtat]</td>
                         <td >
-                            <form style='display: contents'>
+                            <form action='index.php' style='display: contents'>
                                 
                                 <input type='hidden' name='case' value='Gerer_CommandeClient'>
+                                ".genereChampHiddenCSRF()."
                                 <input type='hidden' name='idCommande' value='$item[id]'/>
                                 
                                 <button type='submit' name='action' value='VoirDetailCommande'>

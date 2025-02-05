@@ -74,6 +74,7 @@ Si vous estimez, après avoir contacté la société ABCD, que vos droits « Inf
 
     <form action='index.php' method='post'>
         <input type='hidden' name='case' value='Gerer_Rgpd'>
+        ".genereChampHiddenCSRF()."
         <input type='radio' name='accepterRGPD' value='1'>J'accepte
         <input type='radio' name='accepterRGPD' value='0'>Je refuse
         <button type='submit' name='action' value='validerRGPD'>Valider mon choix</button>

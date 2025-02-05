@@ -18,9 +18,10 @@ class Vue_Utilisateur_Changement_MDPForce extends Vue_Composant
     function donneTexte(): string
     {
 
-        $str="    <form style='display: contents'>
+        $str="    <form action='index.php' style='display: contents'>
 <table style='display: inline-block'> 
         <input type='hidden' name='case' value='$this->case'>
+        ".genereChampHiddenCSRF()."
         <h1>Changement Mot de passe obligatoire</h1>
         <tr> <td><label>Veuillez saisir votre nouveau mot de passe : </label></td>
             <td><input type='password' placeholder='mot de passe' name='NouveauPassword' required></td> </tr>

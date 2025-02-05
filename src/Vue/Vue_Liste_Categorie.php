@@ -15,7 +15,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
         $str= "
     <h1>Liste des Catégories de produit</h1> <br>
     <table style='    display: inline-block;'>
-        <form>
+        <form action='index.php'>
             
             <td colspan='4'>
             <button class='btnRadius'  type='submit' name='action' 
@@ -23,7 +23,7 @@ class Vue_Liste_Categorie  extends Vue_Composant
                              Nouvelle Catégorie ?
             </button>
             <input type='hidden' name='case' value='Gerer_catalogue'>
-            
+            ".genereChampHiddenCSRF()."
             </td> 
         </form>
             <tr>
@@ -40,10 +40,10 @@ class Vue_Liste_Categorie  extends Vue_Composant
                 <td>$iemeCategorie[idCategorie]</td>
                 <td>$iemeCategorie[libelle]</td>
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                         <input type='hidden' name='case' value='Gerer_catalogue'>
-                            
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$iemeCategorie[idCategorie]' name='idCategorie'>
                               
                          <button class='btnRadius'  type='submit' name='action' value='ModifierCategorie'>
@@ -54,10 +54,10 @@ class Vue_Liste_Categorie  extends Vue_Composant
             ";
             if ($iemeCategorie["desactiverCategorie"] == 0) {
                 $str .=  "<td>
-                <form style='display: contents'>
+                <form  action='index.php' style='display: contents'>
                 
                     <input type='hidden' name='case' value='Gerer_catalogue'>
-                        
+                        ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$iemeCategorie[idCategorie]' name='idCategorie'>
                               
                             <button class='btnRadius'  type='submit' name='action' value='DesactiverCategorie'>
@@ -67,10 +67,10 @@ class Vue_Liste_Categorie  extends Vue_Composant
                   </td>";
             } elseif ($iemeCategorie["desactiverCategorie"] == 1) {
                 $str .=  "<td>
-                        <form style='display: contents'>
+                        <form action='index.php' style='display: contents'>
                             
                             <input type='hidden' name='case' value='Gerer_catalogue'>
-                            
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$iemeCategorie[idCategorie]' name='idCategorie'>
                              
                             <button class='btnRadius'  type='submit' name='action' value='ActiverCategorie'>

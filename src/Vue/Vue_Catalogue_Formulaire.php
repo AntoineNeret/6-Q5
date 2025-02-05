@@ -46,9 +46,10 @@ class Vue_Catalogue_Formulaire extends Vue_Composant
             $str= "<H1>Edition du produit</H1>";
 
         $str .=  "
-<form method='post' enctype='multipart/form-data' action='$GLOBALS[adminFileName]'>
+<form action='index.php' method='post' enctype='multipart/form-data' action='$GLOBALS[adminFileName]'>
     
     <input type='hidden' name='idProduit' value='$this->idProduit'>
+    ".genereChampHiddenCSRF()."
     <input type='hidden' name='case' value='Gerer_catalogue'>
     <table style='display: inline-block'> 
 ";

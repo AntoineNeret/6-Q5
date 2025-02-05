@@ -24,10 +24,10 @@ Les salariés se connecteront avec leur e-mail<br>
     <table style="    display: inline-block;">
          <tr>
             <td colspan="5" style="text-align: center">
-                <form style=\'display: contents\'>
+                <form action='index.php' style=\'display: contents\'>
                     
                     <input type="hidden" name="case" value="Gerer_Entreprise">
- 
+ ".genereChampHiddenCSRF()."
                         <button type="submit" 
                             onmouseover="this.style.background=\'#FFFF99\';this.style.color=\'#FF0000\';"
                             onmouseout="this.style.background=\'\';this.style.color=\'\';" 
@@ -76,10 +76,10 @@ Les salariés se connecteront avec leur e-mail<br>
 
             $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form  action='index.php' style='display: contents'>
                     
                         <input type='hidden' name='case' value='Gerer_Entreprise'>
-                            
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$salarie[idSalarie]' name='idSalarie'>
                             
                             <button type='submit' 
@@ -98,9 +98,10 @@ Les salariés se connecteront avec leur e-mail<br>
                 case 0:
                     $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                         <input type='hidden' name='case' value='Gerer_Entreprise'>
+                         ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$salarie[idSalarie]' name='idSalarie'>
                             
                             <button type='submit' 
@@ -116,9 +117,10 @@ Les salariés se connecteront avec leur e-mail<br>
                 case 1:
                     $str .=  "
                 <td>
-                    <form style='display: contents'>
+                    <form action='index.php' style='display: contents'>
                         
                             <input type='hidden' name='case' value='Gerer_Entreprise'>
+                         ".genereChampHiddenCSRF()."
                             <input type='hidden' value='$salarie[idSalarie]' name='idSalarie'>
                             
                             <button type='submit' 

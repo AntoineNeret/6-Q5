@@ -19,10 +19,10 @@ class Vue_Commande_Etat extends Vue_Composant
                 ";
 
         $str .=  "
-                <form style='display: contents'> 
+                <form action='index.php' style='display: contents'> 
                     
                     <input type='hidden' name='case' value='Gerer_Commande'>
-                    
+                    ".genereChampHiddenCSRF()."
                     <li><button type='submit' name='action' value='Toute'>Toutes</button> </li>
                 </form>";
 
@@ -31,9 +31,10 @@ class Vue_Commande_Etat extends Vue_Composant
 
             $str .=  "
                    <li>
-                        <form style='display: contents'> 
+                        <form action='index.php' style='display: contents'> 
                             
                             <input type='hidden' name='case' value='Gerer_Commande'>
+                            ".genereChampHiddenCSRF()."
                             <input type='hidden' name='idEtatCommande' value='$iemeEtatCommande[idEtatCommande]'>
                             <button type='submit' name='action' value='boutonCategorie'> $iemeEtatCommande[libelle]</button>
                         </form>
@@ -43,9 +44,10 @@ class Vue_Commande_Etat extends Vue_Composant
             $i++;
         }
         $str .=  "
-                <form style='display: contents'> 
+                <form action='index.php' style='display: contents'> 
                     
                     <input type='hidden' name='case' value='Gerer_Commande'> 
+                    ".genereChampHiddenCSRF()."
                     <li><input type='text' name='recherche' placeholder='Rechercher'> </li>
                     <li><button type='submit' name='action' value='okRechercher'>OK</button> </li>
                 </form>";

@@ -78,11 +78,11 @@ class Vue_Panier_Client extends Vue_Composant
                 if ($this->commandeFinalisee == false) {
                     $str .= "<td >
                     
-                        <form style='display: contents' >
+                        <form action='index.php' style='display: contents' >
                         
                             <input type='hidden' name='case' value='Gerer_Panier' >
                             <input type='hidden' name='idProduit' value='$produit[idProduit]' />
-                            
+                            ".genereChampHiddenCSRF()."
                             <button type='submit' name='action' value='diminuerQTT' style='width: auto'>-</button>
                     
                         </form > 
@@ -91,11 +91,11 @@ class Vue_Panier_Client extends Vue_Composant
             $produit[quantite]   
                      </td > 
                      <td >
-                     <form style='display: contents' >
+                     <form action='index.php' style='display: contents' >
                         
                         <input type='hidden' name='case' value='Gerer_Panier' >
                         <input type='hidden' name='idProduit' value='$produit[idProduit]' >
-                        
+                        ".genereChampHiddenCSRF()."
                         <button type='submit' name='action' value='augmenterQTT' style='width: auto'>+</button>
                     </form >
                     </td > ";
@@ -147,11 +147,11 @@ class Vue_Panier_Client extends Vue_Composant
                 $str .= "
             <tr >
                 <td colspan='12' style='text-align: center' >
-                    <form style='display: contents' >
+                    <form action='index.php' style='display: contents' >
                         
                         <input type='hidden' name='case' value='Gerer_Panier' >
                         <input type='hidden' name='idProduit' value='$produit[idProduit]' >
-                        
+                        ".genereChampHiddenCSRF()."
                         <button type='submit' name='action' value='validerPanier' style='width: auto'>
                             VALIDER CETTE COMMANDE
                         </button>

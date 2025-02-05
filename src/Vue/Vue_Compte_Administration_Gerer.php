@@ -21,20 +21,20 @@ class Vue_Compte_Administration_Gerer extends Vue_Composant
     <table style='display: inline-block'>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                      <input type='hidden' name='case' value='$this->action'>
-                     
+                     ".genereChampHiddenCSRF()."
                     <button type='submit' name='action' value='changerMDP'>Changer mot de passe </button>
                 </form>
             </td>
         </tr>
         <tr>
             <td>
-                <form style='display: contents'>
+                <form action='index.php' style='display: contents'>
                     
                     <input type='hidden' name='case' value='$this->action'>
-                    
+                    ".genereChampHiddenCSRF()."
                     <button type='submit' name='action' value='SeDeconnecter'>
                         Se déconnecter 
                     </button>

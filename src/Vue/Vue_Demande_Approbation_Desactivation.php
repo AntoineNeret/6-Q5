@@ -17,11 +17,11 @@ class Vue_Demande_Approbation_Desactivation  extends Vue_Composant
         return   " <table style='margin: auto'>
             <h3> Etes-vous sûr(e) de vouloir désactiver cette catégorie ?
              <br> Si oui, les produits se trouvant à l'intérieur de celle-ci ne seront plus visibles sur le catalogue client.</h3>
-            <form style='display: contents; align-content: center'>
+            <form action='index.php' style='display: contents; align-content: center'>
                 
                 <input type='hidden' value='$this->idCategorie' name='idCategorie'>
                 <input type='hidden' name='case' value='Gerer_catalogue'>
-                
+                ".genereChampHiddenCSRF()."
                 <td style='width: 100px; height: 100px;'>
                     <button type='submit' name='action' value='OuiDesactivation'>Oui</button>
                 </td>

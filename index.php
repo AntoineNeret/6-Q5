@@ -45,87 +45,104 @@ else
 //error_log("action : " . $action);
 //utiliser en débuggage pour avoir le type de connexion
 //$Vue->addToCorps(new Vue_AfficherMessage("<br>Action $action<br>"));
-if(isset($_REQUEST["token"]))
-{
+$etatCSRF = verifierCSRF();
+if ($etatCSRF == -1) {
+    session_destroy();
+    unset($_SESSION);
+    $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, vous reconnecter"));
+    $Vue->afficher();
+    exit();
+}
+
+if (isset($_REQUEST["token"])) {
     $token = $_REQUEST["token"];
     $tokenBDD = Modele_Token::Token_Select($token);
-    if($tokenBDD !=null)
-    {
+    if ($tokenBDD != null) {
         include "Controleur/Controleur_Gerer_Token.php";
-    }
-    else
-    {
+    } else {
         $Vue->addToCorps(new Vue_AfficherMessage("Token : action non reconnue"));
         $Vue->addToCorps(new Vue_Connexion_Formulaire_client());
     }
-}
-else
-switch ($typeConnexion) {
-    case "visiteur" :
-        switch($case)
-        {
-            case "Gerer_Rgpd":
-                include "Controleur/Controleur_Gerer_Rgpd.php";
-               break;
-            default:
-                include "Controleur/Controleur_visiteur.php";
-        }
-        break;
+} else
+    switch ($typeConnexion) {
+        case "visiteur" :
+            switch ($case) {
+                case "Gerer_Rgpd":
+                    include "Controleur/Controleur_Gerer_Rgpd.php";
+                    break;
+                default:
+                    include "Controleur/Controleur_visiteur.php";
+            }
+            break;
 
-    case "gestionnaireCatalogue":
-    case "commercialCafe":
-    case "administrateurLogiciel":
-        switch ($case) {
-            case "Gerer_CommandeClient":
-            case "Gerer_Commande":
-                include "Controleur/Controleur_Gerer_Commande.php";
-                break;
-            case "Gerer_entreprisesPartenaires":
-                include "Controleur/Controleur_Gerer_entreprisesPartenaires.php";
-                break;
-            case "Gerer_utilisateur":
-                include "Controleur/Controleur_Gerer_utilisateur.php";
-                break;
-            case "Gerer_catalogue":
-                include "Controleur/Controleur_Gerer_catalogue.php";
-                break;
-            case "Gerer_monCompte":
-                include "Controleur/Controleur_Gerer_monCompte.php";
-                break;
+        case "gestionnaireCatalogue":
+        case "commercialCafe":
+        case "administrateurLogiciel":
+            if (!$etatCSRF == 2) {
+                session_destroy();
+                unset($_SESSION);
+                $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, vous reconnecter"));
+                $Vue->afficher();
+                exit();
+            } else
+                switch ($case) {
+                    case "Gerer_CommandeClient":
+                    case "Gerer_Commande":
+                        include "Controleur/Controleur_Gerer_Commande.php";
+                        break;
+                    case "Gerer_entreprisesPartenaires":
+                        include "Controleur/Controleur_Gerer_entreprisesPartenaires.php";
+                        break;
+                    case "Gerer_utilisateur":
+                        include "Controleur/Controleur_Gerer_utilisateur.php";
+                        break;
+                    case "Gerer_catalogue":
+                        include "Controleur/Controleur_Gerer_catalogue.php";
+                        break;
+                    case "Gerer_monCompte":
+                        include "Controleur/Controleur_Gerer_monCompte.php";
+                        break;
 
-            default:
-                include "Controleur/Controleur_Gerer_monCompte.php";
-                break;
-        }
-        break;
-    case "entrepriseCliente" :
-    case "salarieEntrepriseCliente" :
-        switch ($case) {
+                    default:
+                        include "Controleur/Controleur_Gerer_monCompte.php";
+                        break;
+                }
+            break;
+        case "entrepriseCliente" :
+        case "salarieEntrepriseCliente" :
+            if (!$etatCSRF == 2) {
+                session_destroy();
+                unset($_SESSION);
+                $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, vous reconnecter"));
+                $Vue->afficher();
+                exit();
+            } else
+                switch ($case) {
 
-            case "Gerer_CommandeClient":
-                include "Controleur/Controleur_Gerer_CommandeClient.php";
-                break;
-            case "Gerer_Panier":
-                include "Controleur/Controleur_Gerer_Panier.php";
-                break;
-            case "Gerer_MonCompte_Salarie":
-                include "Controleur/Controleur_Gerer_MonCompte_Salarie.php";
-                break;
-            case "Gerer_monCompte" :
-            case "Gerer_Entreprise" :
-                include "Controleur/Controleur_Gerer_Entreprise.php";
-                break;
-            case "Gerer_Rgpd":
-                include "Controleur/Controleur_Gerer_Rgpd.php";
-                break;
-            case "Cas_Par_Defaut":
-            case "Gerer_catalogue":
-            case "Catalogue_client":
-            default:
-                include "Controleur/Controleur_Catalogue_client.php";
-                break;
-        }
-    default:
-        $Vue->addToCorps(new Vue_AfficherMessage("Type de connexion non reconnu"));
-}
+                    case "Gerer_CommandeClient":
+                        include "Controleur/Controleur_Gerer_CommandeClient.php";
+                        break;
+                    case "Gerer_Panier":
+                        include "Controleur/Controleur_Gerer_Panier.php";
+                        break;
+                    case "Gerer_MonCompte_Salarie":
+                        include "Controleur/Controleur_Gerer_MonCompte_Salarie.php";
+                        break;
+                    case "Gerer_monCompte" :
+                    case "Gerer_Entreprise" :
+                        include "Controleur/Controleur_Gerer_Entreprise.php";
+                        break;
+                    case "Gerer_Rgpd":
+                        include "Controleur/Controleur_Gerer_Rgpd.php";
+                        break;
+                    case "Cas_Par_Defaut":
+                    case "Gerer_catalogue":
+                    case "Catalogue_client":
+                    default:
+                        include "Controleur/Controleur_Catalogue_client.php";
+                        break;
+                }
+        default:
+            $Vue->addToCorps(new Vue_AfficherMessage("Type de connexion non reconnu"));
+    }
 $Vue->afficher();

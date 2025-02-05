@@ -18,11 +18,12 @@ class Vue_Utilisateur_Changement_MDP extends Vue_Composant
     function donneTexte(): string
     {
 
-        $str="    <form style='display: contents'>
+        $str="    <form action='index.php' style='display: contents'>
         
 <table style='display: inline-block'> 
 
         <input type='hidden' name='case' value='$this->case'>
+        ".genereChampHiddenCSRF()."
         <h1>Changement Mot de passe</h1>
         <tr>
             <td>
