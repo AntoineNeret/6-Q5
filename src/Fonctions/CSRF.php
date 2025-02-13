@@ -11,7 +11,7 @@ function genereCSRF(): string
         //On crée le tableau des jetons CSRF !
         $_SESSION["CSRF"] = [];
     }
-    $nb = count($_SESSION["CSRF"]);
+    $nb =  count($_SESSION["CSRF"]);
     //Le tableau existe et on va se focaliser sur la dernière valeur.
     if (!isset($_SESSION["CSRF"][$nb - 1])) {
         //La dernière valeur n'existe pas !!
