@@ -2,7 +2,7 @@
 /***
  * Fonction qui génère la valeur CSRF pour cette page
  * @return string
- * @throws Exception
+ * @throws  Exception
  */
 function genereCSRF(): string
 {
