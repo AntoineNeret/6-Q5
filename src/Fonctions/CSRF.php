@@ -34,7 +34,7 @@ function genereCSRF(): string
             //On parcours la collection pour retrouver notre valeur de jeton
             $CSRF = [];
             $CSRF["isReload"] = false;
-            if(isset($_SESSION["CSRFConsomme"])) {
+            if (isset($_SESSION["CSRFConsomme"])) {
                 //Si on a consommé un jeton on peut être sur un reload
                 $boolTrouve = false;
                 for ($i = 0; $i < $nb && $boolTrouve == false; $i++) {
@@ -87,26 +87,28 @@ function genereVarHrefCSRF(): string
 
 function verifierCSRF(): int
 {
-    if(isset($_REQUEST["CSRF"])) {
-        $valeurCSRFProposee = $_REQUEST["CSRF"];
-    }
-    else
-        return -2;
-    if (isset($_SESSION["CSRF"])) {
-       // var_dump($_SESSION["CSRF"]);
-        //si la session existe, on attend une collection
-        $nb = count($_SESSION["CSRF"]);
-        $etatTrouve = -1;
 
-        //On parcours la collection pour retrouver notre valeur de jeton
-        $i = 0;
-        $memoI = 0;
-        for ($i = 0; $i < $nb && $etatTrouve == -1; $i++) {
-            if ($valeurCSRFProposee == $_SESSION["CSRF"][$i]["ValCsrf"]) {
-                $etatTrouve = 1;
-                $memoI = $i;
-            }
+    if (isset($_REQUEST["CSRF"]) && isset($_SESSION["CSRF"])) {
+        $valeurCSRFProposee = $_REQUEST["CSRF"];
+    } else
+        if (!isset($_REQUEST["CSRF"]) && !isset($_SESSION["CSRF"]))
+            return -2;
+        else
+            return -3;
+    // var_dump($_SESSION["CSRF"]);
+    //si la session existe, on attend une collection
+    $nb = count($_SESSION["CSRF"]);
+    $etatTrouve = -1;
+
+    //On parcours la collection pour retrouver notre valeur de jeton
+    $i = 0;
+    $memoI = 0;
+    for ($i = 0; $i < $nb && $etatTrouve == -1; $i++) {
+        if ($valeurCSRFProposee == $_SESSION["CSRF"][$i]["ValCsrf"]) {
+            $etatTrouve = 1;
+            $memoI = $i;
         }
+
         if ($etatTrouve == 1) {//Le jeton est trouvé, on incrémente son nombre d'usages.
             $_SESSION["CSRF"][$memoI]["nbUsage"]++;
 
