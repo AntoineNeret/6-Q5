@@ -46,10 +46,13 @@ else
 //utiliser en débuggage pour avoir le type de connexion
 //$Vue->addToCorps(new Vue_AfficherMessage("<br>Action $action<br>"));
 $etatCSRF = verifierCSRF();
+//$Vue->addToCorps(new Vue_AfficherMessage("Etat CSRF : " . $etatCSRF));
 if ($etatCSRF == -1 || $etatCSRF == -3) {
+   // var_dump($_SESSION);
+
     session_destroy();
     unset($_SESSION);
-    $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, vous reconnecter"));
+    $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, veuillez vous reconnecter"));
     $Vue->afficher();
     exit();
 }

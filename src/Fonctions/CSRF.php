@@ -104,7 +104,7 @@ function verifierCSRF(): int
     $i = 0;
     $memoI = 0;
     for ($i = 0; $i < $nb && $etatTrouve == -1; $i++) {
-        if ($valeurCSRFProposee == $_SESSION["CSRF"][$i]["ValCsrf"]) {
+        if (intval($valeurCSRFProposee) == intval($_SESSION["CSRF"][$i]["ValCsrf"])) {
             $etatTrouve = 1;
             $memoI = $i;
         }
@@ -115,10 +115,10 @@ function verifierCSRF(): int
             //On mémorise le jeton CSRF Consommé par cette page
             $_SESSION["CSRFConsomme"] = $valeurCSRFProposee;
         }
-        return $etatTrouve;
+
     }
     //echo "session inconnue";
-    return 0;
+    return $etatTrouve;
 }
 
 /**
