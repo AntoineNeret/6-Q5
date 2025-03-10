@@ -77,7 +77,7 @@ function CalculComplexiteMdp($mdp) :int
 
     $calculComplexite = log(pow($complexite , $nbCaracteres)) / log(2);
 
-    return $calculComplexite;
+    return round($calculComplexite);
 }
 
 function envoyerMail($mailFrom, $nomFrom, $mailTo, $nomTo, $sujet, $message) :int

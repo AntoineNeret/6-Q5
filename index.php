@@ -48,8 +48,6 @@ else
 $etatCSRF = verifierCSRF();
 //$Vue->addToCorps(new Vue_AfficherMessage("Etat CSRF : " . $etatCSRF));
 if ($etatCSRF == -1 || $etatCSRF == -3) {
-   // var_dump($_SESSION);
-
     session_destroy();
     unset($_SESSION);
     $Vue->addToCorps(new Vue_Connexion_Formulaire_client("Erreur CSRF, veuillez vous reconnecter"));

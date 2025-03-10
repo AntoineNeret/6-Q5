@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 06 jan. 2025 à 13:23
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.2.12
+-- Généré le : lun. 10 mars 2025 à 14:41
+-- Version du serveur : 10.4.28-MariaDB
+-- Version de PHP : 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -478,6 +478,13 @@ CREATE TABLE `token` (
   `dateFin` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `token`
+--
+
+INSERT INTO `token` (`id`, `valeur`, `codeAction`, `idUtilisateur`, `dateFin`) VALUES
+(1, 'jHHGiHpT+pgzPIieZE/KFaa1VXPlu6gcjBpieZD1ai+PoqYWvz+Qv9+aIWo/98eDpOB4hDDE8DOqw+Y60uc1/HaRdIDis+emi6EgKjwQz0JBIvEPv0UFp/Qqf7k12NnGJR93iLIEhmN/3AVT2/Z/iZjMGKaEoF6kxumewVqztEPm+zGCVCZE0EVaiTcvKvIGagzEh4E+6/mWd7YUTtYZEcdwx2nXREa39Q3jDSFZdb6zwEv3vtL+YdzKvp2bnmTAFAF7L130EzRJ/24ErVSM4yWIhk5kGyVsCUjFij96pVCF/x/FpNg213a1wwWZx5Ic/8qk+mec741jQXZavLss0w==', 1, 671, '2025-03-10 15:29:05');
+
 -- --------------------------------------------------------
 
 --
@@ -522,7 +529,7 @@ CREATE TABLE `utilisateur` (
 INSERT INTO `utilisateur` (`idUtilisateur`, `login`, `motDePasse`, `idCategorie_utilisateur`, `desactiver`, `aAccepteRGPD`, `dateAcceptationRGPD`, `ipRGPD`, `DoitChangerMotDePasse`) VALUES
 (18, 'root', 'secret', 1, 0, b'1', '2024-12-09', '127.0.0.1', b'0'),
 (19, 'utilisateurcafe', 'secret', 2, 0, NULL, NULL, NULL, b'0'),
-(671, 'contact@blogtags.com', 'secret', 3, 0, NULL, NULL, NULL, b'0'),
+(671, 'contact@blogtags.com', 'secret', 3, 0, b'1', '2025-03-10', '127.0.0.1', b'0'),
 (672, 'contact@brainverse.com', 'secret', 3, 0, NULL, NULL, NULL, b'0'),
 (673, 'contact@browsecat.com', 'secret', 3, 0, NULL, NULL, NULL, b'0'),
 (674, 'contact@bubblebox.com', 'secret', 3, 0, NULL, NULL, NULL, b'0'),
@@ -746,7 +753,7 @@ ALTER TABLE `produit`
 -- AUTO_INCREMENT pour la table `token`
 --
 ALTER TABLE `token`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `tva`

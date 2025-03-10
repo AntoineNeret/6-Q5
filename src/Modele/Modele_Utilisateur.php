@@ -133,7 +133,7 @@ class Modele_Utilisateur
         $connexionPDO = Singleton_ConnexionPDO::getInstance();
 
         $requetePreparee = $connexionPDO->prepare(
-'UPDATE `utilisateur`
+            'UPDATE `utilisateur`
 SET `login`= :paramlogin, `idCategorie_utilisateur`= :paramidCategorie_utilisateur
 WHERE idUtilisateur = :paramidUtilisateur');
         $requetePreparee->bindParam('paramlogin', $login);
@@ -172,7 +172,7 @@ WHERE idUtilisateur = :paramidUtilisateur');
 
     {
         $connexionPDO = Singleton_ConnexionPDO::getInstance();
-         $requetePreparee = $connexionPDO->prepare(
+        $requetePreparee = $connexionPDO->prepare(
             'UPDATE `utilisateur` 
 SET motDePasse = :parammotDePasse
 WHERE idUtilisateur = :paramidUtilisateur');
