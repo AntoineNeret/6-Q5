@@ -223,7 +223,7 @@ SET motDePasse = :parammotDePasse ');
             `dateAcceptationRGPD`= NOW(),
             `ipRGPD`= :paramipRGPD
         WHERE idUtilisateur = :paramidUtilisateur');
-        $requetePreparee->bindParam('paramaccepterRGPD', $accepterRGPD);
+        $requetePreparee->bindParam('paramaccepterRGPD', $accepterRGPD, PDO::PARAM_BOOL);
         $requetePreparee->bindParam('paramipRGPD', $ipRGPD);
         $requetePreparee->bindParam('paramidUtilisateur', $idUtilisateur);
         $reponse = $requetePreparee->execute(); //$reponse boolean sur l'état de la requête

@@ -76,20 +76,21 @@ class Vue_Produits_Info_Clients extends Vue_Composant
                     <td><div class='resume'><b>Description :</b> $nDescription</div></td>
                 </tr>
                 
-                <form action='index.php'>
+              <form>
                     <td colspan='2'>
                         <form action='index.php'>
                         
                         <input type='hidden' value='$nproduit' name='idProduit'>
                         <input type='hidden' value='$this->idCategorie' name='idCategorie'>
                         <input type='hidden' value='$this->recherche' name='recherche'>
+                        ".genereChampHiddenCSRF()."
                         <button class='btnRadius' type='submit' name='action' value='AjoutPanierClient'>
                             Ajouter au panier
                         </button>
                         
                        </form>
-                    </td>
                     </form>
+                    </td> 
                 </tr>
             
         ";
