@@ -55,6 +55,11 @@ if ($etatCSRF == -1 || $etatCSRF == -3) {
     exit();
 }
 
+if (direIsReload()){
+    genereCSRF();
+    exit();
+}
+
 if (isset($_REQUEST["token"])) {
     $token = $_REQUEST["token"];
     $tokenBDD = Modele_Token::Token_Select($token);
